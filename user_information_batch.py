@@ -44,7 +44,7 @@ def getUserInfo(userList):
        
             print("output for user ",user.screen_name)
     
-            # dump to json
+            # dumpt to json
             json.dump(user._json, f)
             index+=1
      
