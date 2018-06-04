@@ -38,11 +38,7 @@ def appMng(i):
       return (app[i-1].getCk(),app[i-1].getCs(),app[i-1].getAk(),app[i-1].getAsc())
 
 def rotateApp():
-      appList = pd.read_csv("appList.csv")
-      appFile = pd.read_csv("appList.csv").values.tolist()
-      for e in appFile:
-         TwitterApp.appList.append(TwitterApp(e[0],e[1],e[2],e[3]))
-      TwitterApp.appSize = appList.shape[0]
+
       if TwitterApp.currentApp < TwitterApp.appSize:
          TwitterApp.currentApp+=1
       else:
@@ -50,7 +46,13 @@ def rotateApp():
       cApp = appMng(TwitterApp.currentApp)
       return cApp
 
+def init():
+    appList = pd.read_csv("appList.csv")
+    appFile = pd.read_csv("appList.csv").values.tolist()
+    for e in appFile:
+        TwitterApp.appList.append(TwitterApp(e[0], e[1], e[2], e[3]))
+    TwitterApp.appSize = appList.shape[0]
 
-print(rotateApp())
-print(rotateApp())
-print(rotateApp())
+# print(rotateApp())
+# print(rotateApp())
+# print(rotateApp())
